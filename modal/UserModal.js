@@ -11,6 +11,10 @@ const UserSchema = new mongoose.Schema({
         require: [true, "Enter your password"],
         minlength: 8,
       },
+      blood:{
+        type:String,
+        require:[true , "Enter your Blood Group"],
+      },
       email: {
         type: String,
         require: true,
