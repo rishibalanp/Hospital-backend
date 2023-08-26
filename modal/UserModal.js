@@ -41,7 +41,7 @@ UserSchema.pre("save", async function (next) {
     next();
   });
   // active not equal to false
-  UserSchema.pre(/^find/, function (next) {
+UserSchema.pre(/^find/, function (next) {
     this.find({ active: { $ne: false } });
     next();
   });
