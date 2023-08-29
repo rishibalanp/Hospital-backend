@@ -1,5 +1,5 @@
 const CatchAsync = require("../utils/CatchAsync");
-const Doctor = require("../modal/Doctor");
+const Doctor = require("../modal/DoctorModal");
 const sendResponse = require("../utils/SendResponse");
 
 exports.postDoctor = CatchAsync(async(req , res , next) => {
