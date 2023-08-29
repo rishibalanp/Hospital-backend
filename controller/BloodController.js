@@ -7,7 +7,7 @@ exports.postBlood =  CatchAsync(async(req , res , next) => {
     sendResponse(blood , 201 , res);
 });
 exports.getBlood =  CatchAsync(async(req , res , next) => {
-    const blood = await Blood.find();
+    const blood = await Blood.find().sort({createdAt: -1});
     sendResponse(blood , 200 , res);
 });
 exports.getBloodByGroup =  CatchAsync(async(req , res , next) => {

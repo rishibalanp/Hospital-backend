@@ -15,7 +15,11 @@ const doctorSchema = new mongoose.Schema({
     Hospital:{
         type:String,
         ref: "Hospital"
-    }
+    },
+    createdAt:{
+        type:Date,
+        default: Date.now
+      }
 })
 
 const Doctor = mongoose.model("Doctor", doctorSchema);

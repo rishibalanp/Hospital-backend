@@ -39,6 +39,7 @@ exports.signUp = CatchAsync(async (req, res, next) => {
 });
 
 exports.signIn = CatchAsync(async (req, res, next) => {
+  console.log('renderrrrrrrrrrrrrrrr');
     const { email, password } = req.body;
     if(!email || !password){
       return next({message:"please enter email and password", Error:400})
@@ -51,7 +52,7 @@ exports.signIn = CatchAsync(async (req, res, next) => {
 });
 
 exports.getUsers = CatchAsync(async (req, res, next) => {
-    const user = await Users.find();
+    const user = await Users.find().sort({createdAt: -1});
     console.log(user , 'users');
     res.status(200).json({
         success:true,

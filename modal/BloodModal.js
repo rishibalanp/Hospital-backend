@@ -8,6 +8,10 @@ const bloodSchema = new mongoose.Schema({
         type:String,
         require:[true , "Enter weight"]
     },
+    createdAt:{
+        type:Date,
+        default: Date.now
+      }
 })
 
 const Blood = mongoose.model("blood", bloodSchema);

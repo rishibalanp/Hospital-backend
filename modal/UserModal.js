@@ -32,6 +32,10 @@ const UserSchema = new mongoose.Schema({
           },
           message: "Password are not same",
         },
+      },
+      createdAt:{
+        type:Date,
+        default: Date.now
       }
 })
 UserSchema.pre("save", async function (next) {

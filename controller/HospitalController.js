@@ -8,7 +8,7 @@ exports.postHospital = CatchAsync(async (req, res, next) => {
       sendResponse(hospital, 201, res);
 });
 exports.getHospital = CatchAsync(async (req, res, next) => {
-  const hospital = await Hospital.find()
+  const hospital = await Hospital.find().sort({createdAt: -1})
   sendResponse(hospital, 200, res);
 });
 exports.getHospitalById = CatchAsync(async (req, res, next) => {

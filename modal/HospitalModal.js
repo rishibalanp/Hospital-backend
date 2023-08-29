@@ -20,6 +20,10 @@ const hospitalSchema = new mongoose.Schema({
         type:String,
         require:[true , "Enter hospital closing time"]
     },
+    createdAt:{
+        type:Date,
+        default: Date.now
+      }
     // doctor:[{    
     //       type: mongoose.Schema.ObjectId,
     //       ref: "Doctor",

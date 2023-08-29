@@ -8,7 +8,7 @@ exports.postDoctor = CatchAsync(async(req , res , next) => {
     sendResponse(doctor , 201 , res);
 });
 exports.getDoctor = CatchAsync(async(req , res , next) => {
-    const doctor = await Doctor.find().populate({path:"Hospital" ,select:"_id"});
+    const doctor = await Doctor.find().sort({createdAt: -1}).populate({path:"Hospital" ,select:"_id"});
     sendResponse(doctor , 200 , res);
 });
 exports.getDoctorByHospital = CatchAsync(async(req , res , next) => {
