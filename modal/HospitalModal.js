@@ -1,4 +1,4 @@
-const { mongoose } = require("mongoose");
+const mongoose = require("mongoose");
 const hospitalSchema = new mongoose.Schema({
     name:{
         type:String,
@@ -10,7 +10,7 @@ const hospitalSchema = new mongoose.Schema({
     },
     type:{
         type:String,
-        require:[true , "Enter hospital type"]
+        require:[true , "Enter hospital type"]   
     },
     openTime:{
         type:String,
@@ -19,8 +19,21 @@ const hospitalSchema = new mongoose.Schema({
     clossingTime:{
         type:String,
         require:[true , "Enter hospital closing time"]
-    }
+    },
+    // doctor:[{    
+    //       type: mongoose.Schema.ObjectId,
+    //       ref: "Doctor",
+    //     }]
 })
-
+// hospitalSchema.pre(/^find/, function (next) {
+//     this.populate({
+//       path: "Doctor",
+//       select: "-__v",
+//     });
+//     next();
+//   });
+  hospitalSchema.set('toObject', { virtuals: true });
+hospitalSchema.set('toJSON', { virtuals: true });
 const Hospital = mongoose.model("Hospital", hospitalSchema);
 module.exports = Hospital;
+
